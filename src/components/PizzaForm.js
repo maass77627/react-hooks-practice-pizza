@@ -1,19 +1,28 @@
 import React from "react";
+//import { useState } from "react"
+//import Pizza from "./Pizza";
 
-function PizzaForm() {
+function PizzaForm({formData, handleSubmit, handleToppingChange, handleSizeChange, handleVegChange}) {
+
+  
+
+ 
+
   return (
-    <form onSubmit={null /*handle that submit*/}>
+    <form onSubmit={handleSubmit}>
       <div className="form-row">
         <div className="col-5">
           <input
+            onChange={handleToppingChange}
             className="form-control"
             type="text"
+            value={formData.topping}
             name="topping"
             placeholder="Pizza Topping"
           />
         </div>
-        <div className="col">
-          <select className="form-control" name="size">
+        <div  className="col">
+          <select onChange={handleSizeChange} className="form-control" value={formData.size} name="size">
             <option value="Small">Small</option>
             <option value="Medium">Medium</option>
             <option value="Large">Large</option>
@@ -22,6 +31,7 @@ function PizzaForm() {
         <div className="col">
           <div className="form-check">
             <input
+              onChange={handleVegChange}
               className="form-check-input"
               type="radio"
               name="vegetarian"
@@ -31,6 +41,7 @@ function PizzaForm() {
           </div>
           <div className="form-check">
             <input
+              onChange={handleVegChange}
               className="form-check-input"
               type="radio"
               name="vegetarian"
